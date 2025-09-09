@@ -1,0 +1,7 @@
+SELECT DISTINCT Salary FROM Employee ORDER BY Salary DESC LIMIT 1 OFFSET 1;
+
+or 
+Select Coalesce(
+(select max(salary) from Employee
+where salary < (select max(salary) from Employee)),NULL)
+as second_highest_salary;
